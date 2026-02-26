@@ -26,7 +26,7 @@ pipeline {
                 docker rm -f nginx-lb || true
                 docker run -d --name nginx-lb --network app-network -p 80:80 nginx
                 '''
-                // Increase this to 5 seconds to ensure NGINX joins the network
+                
                 sleep 5
                 sh '''
                 docker cp nginx/default.conf nginx-lb:/etc/nginx/conf.d/default.conf
